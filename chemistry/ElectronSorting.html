@@ -11,18 +11,18 @@
 </head>
 <body>
     <div>
-        <div>
-            <input id="index" type="number" style="font-size: 100%; width: 5%;" max="118" min="1" onchange="getAtomFromIndex()">
-            <input id="ID" type="text" style="font-size: 900%;width: 15%;">
-            <select>
-                <option>(電中性)</option>
-                <option>+1價</option>
-                <option>+2價</option>
-                <option>+3價</option>
-                <option>-3價</option>
-                <option>-2價</option>
-                <option>-1價</option>
-            </select>
-        </div>
+        <input id="index" type="number" style="font-size: 100%; width: 5%;" max="118" min="1" onchange="getAtomFromIndex()">
+        <input id="ID" type="text" style="font-size: 900%;width: 15%;" onchange="getIndexFromAtom()">
+        <select id="Valence" onchange="getIndexFromAtom()">
+            <option>(電中性)</option>
+            <option>+1價</option>
+            <option>+2價</option>
+            <option>+3價</option>
+            <option>-3價</option>
+            <option>-2價</option>
+            <option>-1價</option>
+        </select>
     </div>
+    <p style="font-size:800% ;color: blue;" id="mainE"></p>
+    <br><p style="font-size:800% ;color: blue;" id="viceE"></p>
 </body>

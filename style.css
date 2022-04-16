@@ -1,6 +1,7 @@
-#tittle{
+#title{
     height: 70px;
     color: rgb(255, 255, 255);
+    width: 100%;
     line-height: 70px;
     font-size: 35px;
     text-align: center;
@@ -10,7 +11,6 @@
 }
 .word{
     height: 65px;
-    width: 400px;
     color: black;
     line-height: 45px;
     font-size: 28px;

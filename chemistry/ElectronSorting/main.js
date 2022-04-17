@@ -8,6 +8,10 @@ function getAtomFromIndex(){
     $('#Valence').attr('onchange','getIndexFromAtom()')
     $('#E').html('<td id="E"><input onchange="getAtomFromE()"  type="number" id="Enum" max="121" min="0"></td>')
     var input=$('#index').val()
+    if(input>118){
+        $('#ID').val('未支援')
+        $('#index').val(0)
+    }
     for(var i=0;i<index.length;i++){
         //console.log(index[i])
         if(input==index[i]){
@@ -30,6 +34,11 @@ function getAtomFromE(){
         console.log(OutIndex)
     }else{
         var OutIndex=E
+    }
+    //尚未開發完成
+    if(OutIndex>118){
+        $('#ID').val('未支援')
+        $('#index').val(0)
     }
     if(OutIndex<0){
         $('#ID').val('無')
@@ -57,6 +66,9 @@ function getIndexFromAtom(){
             $('#index').val(index[i])
             getE(index[i])
             break
+        }else{
+            $('#ID').val('查無')
+            $('#index').val(0)
         }
     }
 }
@@ -93,30 +105,28 @@ function ADD(level,max){
 //k=
 
 function getLevelnum(e){
-    console.log(11)
+    //console.log(11)
     var n=1
     var enow=0//目前主殼層電子數
-    console.log(e)
+    //console.log(e)
     for(etotal=1;etotal<=e;etotal++){
         enow++
-        console.log({enow,etotal,n:(n)})
+        //console.log({enow,etotal,n:(n)})
         if (enow==(2*Math.floor(n)*Math.floor(n))){
-            console.log(11)
+            //console.log(11)
             n=n+0.5
             enow=0
         }
     }
-    console.log({n:n,nnew:(n-1)*2})
-    n=(n-1)*2
+    //console.log({n:n,nnew:(n-1)*2})
+    return n=(n-1)*2
 }
 function getSorting(e){
     var s=[],p=[],d=[],f=[],g=[],h=[],i=[];
     var row=[],column=[];
     var enow=0
-    //while (enow<=e){
-        //console.log(3)
-        var maxcolumn=getLevelnum(e)
-        //console.log(4)
+        var nmax=getLevelnum(e)
+        console.log(nmax)
         for (n=1;n<=maxcolumn;n++){
             //console.log(2)
             if(n/2==parseInt(n/2)){

@@ -11,18 +11,44 @@
 </head>
 <body>
     <div>
-        <input id="index" type="number" style="font-size: 100%; width: 5%;" max="118" min="1" onchange="getAtomFromIndex()">
-        <input id="ID" type="text" style="font-size: 900%;width: 15%;" onchange="getIndexFromAtom()">
-        <select id="Valence" onchange="getIndexFromAtom()">
-            <option>(電中性)</option>
-            <option>+1價</option>
-            <option>+2價</option>
-            <option>+3價</option>
-            <option>-3價</option>
-            <option>-2價</option>
-            <option>-1價</option>
-        </select>
+    <input id="index" type="number" style="font-size: 200%; width: 6%;" max="118" min="1" onchange="getAtomFromIndex()">
+    <input id="ID" type="text" style="font-size: 900%;width: 18%;" onchange="getIndexFromAtom()">
+    <select id="Valence" onchange="getIndexFromAtom()" size="7">
+        <option selected>(電中性)</option>
+        <option>+1價</option>
+        <option>+2價</option>
+        <option>+3價</option>
+        <option>-3價</option>
+        <option>-2價</option>
+        <option>-1價</option>
+    </select>
+    <table>
+        <tr>
+            <td style="font-size:150% ;border-style:double;width: fit-content;">電子總數</td>
+            <td id="E" style="border-style:double;width: fit-content;"><input style="border: 0ch;height: 100%;width:95%;" onchange="getAtomFromE()" type="number" id="Enum" max="121" min="0"></td>
+        </tr>
+    </table>
+    <!--<p style="font-size:150% ;border-style:double;width: fit-content;">主殼層排列</p>
+    <table style="border-style:hidden;">
+        <tr style="border-style:double">
+            <td style="border-style:double">K</td>
+            <td style="border-style:double">L</td>
+            <td style="border-style:double">M</td>
+            <td style="border-style:double">N</td>
+            <td style="border-style:double">O</td>
+            <td style="border-style:double">P</td>
+        </tr>
+            <tr style="border-style:double">
+            <td style="border-style:double"><input style="border: 0ch;height: 100%;width:95%;"  onchange="getAtomFromE()" type="number" id="mainK" max="2" min="0"></td>
+            <td style="border-style:double"><input style="border: 0ch;height: 100%;width:95%;"  onchange="getAtomFromE()" type="number" id="mainL" max="8" min="0"></td>
+            <td style="border-style:double"><input style="border: 0ch;height: 100%;width:95%;"  onchange="getAtomFromE()" type="number" id="mainM" max="18" min="0"></td>
+            <td style="border-style:double"><input style="border: 0ch;height: 100%;width:95%;"  onchange="getAtomFromE()" type="number" id="mainN" max="32" min="0"></td>
+            <td style="border-style:double"><input style="border: 0ch;height: 100%;width:95%;"  onchange="getAtomFromE()" type="number" id="mainO" max="50" min="0"></td>
+            <td style="border-style:double"><input style="border: 0ch;height: 100%;width:95%;"  onchange="getAtomFromE()" type="number" id="mainP" max="72" min="0"></td>
+        </tr>
+    </table>
+    -->
     </div>
-    <p style="font-size:800% ;color: blue;" id="mainE"></p>
-    <br><p style="font-size:800% ;color: blue;" id="viceE"></p>
+    <br><p style="font-size:400% ;color: blue;" id="mainESort"></p>
+    <br><p style="font-size:400% ;color: blue;" id="viceESort"></p>
 </body>

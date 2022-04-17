@@ -5,6 +5,8 @@ var weight =[1.00794,4.002602,6.941,9.0121831,10.811,12.0107,14.0067,15.9994,18.
 var s,p,d,f,g,h,i=[0]
 var level=[s,p,d,f,g,h,i]
 function getAtomFromIndex(){
+    $('#Valence').attr('onchange','getIndexFromAtom()')
+    $('#E').html('<td id="E"><input onchange="getAtomFromE()"  type="number" id="Enum" max="121" min="0"></td>')
     var input=$('#index').val()
     for(var i=0;i<index.length;i++){
         //console.log(index[i])
@@ -16,7 +18,37 @@ function getAtomFromIndex(){
         }
     }
 }
+function getAtomFromE(){
+    $('#Valence').attr('onchange','getAtomFromE()')
+    var ValenceObj=document.getElementById('Valence')
+    var Indexnow=ValenceObj.selectedIndex
+    ValenceObj.selectedIndex=Indexnow
+    var E=parseInt($('#Enum').val())
+    var Valence=ValenceObj.options[Indexnow].value
+    if(Valence!="(電中性)"){
+        var OutIndex=E+parseInt(Valence.substr(0,2))
+        console.log(OutIndex)
+    }else{
+        var OutIndex=E
+    }
+    if(OutIndex<0){
+        $('#ID').val('無')
+        $('#index').val(0)
+    }else{
+        for(var i=0;i<index.length;i++){
+            if(OutIndex==index[i]){
+                $('#ID').val(enID[i])
+                $('#index').val(index[i])
+                break
+            }
+        }
+        
+    }
+    
+}
 function getIndexFromAtom(){
+    $('#Valence').attr('onchange','getIndexFromAtom()')
+    $('#E').html('<td id="E"><input onchange="getAtomFromE()"  type="number" id="Enum" max="121" min="0"></td>')
     var input=$('#ID').val()
     for(var i=0;i<index.length;i++){
         //console.log(index[i])
@@ -38,6 +70,11 @@ function getE(index){
     }else{
         var OutValence=index
     }
+    if(OutValence<0){
+        $('#E').html('<td id="E"><input type="text" value="不正確" id="Enum"></td>')
+    }else{
+        $('#Enum').val(OutValence)
+    }
     getSorting(OutValence)
 }
 //假設e=5，排列:1s,2s,2p
@@ -51,25 +88,51 @@ function ADD(level,max){
     }
     return level;
 }
-function getLevelnum(n){
-    return Math.ceil(n/2)
+//e:電子數
+//n=最大副殼層數量
+//k=
+
+function getLevelnum(e){
+    console.log(11)
+    var n=1
+    var enow=0//目前主殼層電子數
+    console.log(e)
+    for(etotal=1;etotal<=e;etotal++){
+        enow++
+        console.log({enow,etotal,n:(n)})
+        if (enow==(2*Math.floor(n)*Math.floor(n))){
+            console.log(11)
+            n=n+0.5
+            enow=0
+        }
+    }
+    console.log({n:n,nnew:(n-1)*2})
+    n=(n-1)*2
 }
 function getSorting(e){
     var s=[],p=[],d=[],f=[],g=[],h=[],i=[];
     var row=[],column=[];
-    for (n=0;n<0;n++){
-        var columnnum=getLevelnum(n)
-        if(n/2==parseInt(n/2)){
-            var rownum=columnnum+1
-        }else{
-            var rownum=columnnum
+    var enow=0
+    //while (enow<=e){
+        //console.log(3)
+        var maxcolumn=getLevelnum(e)
+        //console.log(4)
+        for (n=1;n<=maxcolumn;n++){
+            //console.log(2)
+            if(n/2==parseInt(n/2)){
+                var rownum=maxcolumn+1
+            }else{
+                var rownum=maxcolumn
+            }
+            for(c=maxcolumn;c>0;c=c-1){
+                //console.log(1)
+                row.push(c)
+                column.push(rownum)
+                rownum=rownum+1
+            }
         }
-        for(a=columnnum;a>0;a=a-1){
-            row.push(a)
-            column.push(rownum)
-            num=num+1
-        }
-    }
+        enow++
+    //}   
     console.log(row)
     console.log(column)
     

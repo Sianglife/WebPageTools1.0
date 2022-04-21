@@ -116,41 +116,41 @@ function getLevelnum(e){
     var maxa=1;
     var maxb=1;
     var vicestatus=false//false不用b+1
-    var now=level[level.length-1];
-    for (etotal=1;etotal<=e;etotal++){
-        console.log({a:(4*(now.b)-2),b:now.a==1,c:vicestatus,n:4*(now.b)-2})
-        console.log(10)
+    for (etotal=1;etotal<e;etotal++){
+        var now=level[level.length-1];
         //是否需要新增副殼層
-        if(now.e==(4*(now.b)-2)){
+        if(now.e>=(4*(now.b)-2)){
             if(now.a==1){
                 if(vicestatus){
-                    console.log(2)
                     //例如4s->3d
                     maxb++
+                    //console.log({maxa,maxb})
                     level.push({a:maxa,b:maxb,e:1})
                     vicestatus=false
                 }else{
-                    console.log(maxa)
                     //例如3s->3p
                     maxa++
+                    //console.log({maxa,maxb})
                     level.push({a:maxa,b:maxb,e:1})
                     vicestatus=true
                     
                 }
             }else{
-                console.log(3)
+                //console.log(3)
                 //a+1,b-1
                 //例如2p->3s
                 maxa++
-                maxb--
-                level.push({a:maxa,b:maxb,e:1})
+                console.log({maxa,maxb})
+                level.push({a:maxa,b:maxb+1,e:1})
             }
         }else{
-            console.log(4)
+           // console.log({maxa,maxb})
             level.push({a:now.a,b:now.b,e:now.e+1})
         }
+        //console.log({a:now.e==(4*(now.b)-2),b:now.e,n:4*(now.b)-2,c:etotal})
     }
     console.log(level)
+    
 }
 /*
 function getLevelnumOLD(e){

@@ -150,7 +150,9 @@ function getLevelnum(e){
         //console.log({a:now.e==(4*(now.b)-2),b:now.e,n:4*(now.b)-2,c:etotal})
     }
     console.log(level)
-    
+    for (a=level.length;a>0;a++){
+        
+    }
 }
 /*
 function getLevelnumOLD(e){

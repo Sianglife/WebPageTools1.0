@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW"><!--設定網頁語言-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<head>
+    <link rel="icon" href="/icon.png" type="image/icon type"></link>
+    <title>質數與因數</title><!--網頁標題-->
+    <link rel="stylesheet" href="Factor/style.css"></link>
+    <script src="../jquery.js"></script>
+</head>
+<body  onkeypress="if (event.keyCode == 13) {return false;}">
+<script src="Factor/check.js"></script>
+    <div class="word" id="tittle">
+        <strong>因數小幫手</strong>
+    </div>
+    <a href="/WebPageTools/index.html">回首頁</a>
+    <div class="text" id="text">
+        請給我一個數字，我幫你列出
+    </div>
+    <select id="select" class="select">
+        <option value="1">此數所有的因數</option>
+        <option value="2">小於此數的質數</option>
+        <option value="3">此數所有的質因數</option>
+    </select>
+    <form>
+         <input id="number" type="number" step="1" required autofocus class="form" min=0>
+         <input type="button" value="送出" onclick="ongo()" class="button">
+    </form>
+    <p id="output"></p>
+</body>

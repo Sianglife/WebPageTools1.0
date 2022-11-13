@@ -1,0 +1,40 @@
+#title{
+    height: 70px;
+    color: rgb(255, 255, 255);
+    width: 100%;
+    line-height: 70px;
+    font-size: 35px;
+    text-align: center;
+    border-collapse:collapse;
+    border-style: groove;
+    background-color: rgb(65, 136, 136);
+}
+.word{
+    height: 65px;
+    color: black;
+    line-height: 45px;
+    font-size: 28px;
+    text-align: center;
+    align-items: center;
+}
+#math{
+    background-color: rgb(170, 241, 244);
+    align-items: center;
+}
+#chemistry{
+    background-color: rgb(172, 248, 198);
+    align-items: center;
+}
+.subtitle{
+    height: 20px;
+    width: 400px;
+    color: rgb(51, 51, 51);
+    line-height: 45px;
+    font-size: 28px;
+    text-align: left;
+}
+td,tr{
+    border-radius: 5px; 
+    border-style:groove;
+    border-color: black;
+}

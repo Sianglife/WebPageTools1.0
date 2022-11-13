@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" ontent="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<head>
+    <link rel="icon" href="/icon.png" type="image/icon type"></link>
+    <title>電子殼層工具</title>
+    <link rel="stylesheet" href="ElectronSorting/style.css"></link>
+    <script src="../jquery.js"></script>
+    <script src="ElectronSorting/main.js"></script>
+</head>
+<body>
+    <div>
+    <p style="color: blueviolet;">目前此工具尚在開發中，僅支援原子序1-118及其電子數低於121之離子</p>
+    <input id="index" type="number" style="font-size: 200%; width: 6%;" max="118" min="1" onchange="getAtomFromIndex()">
+    <input id="ID" type="text" style="font-size: 900%;width: 18%;" onchange="getIndexFromAtom()">
+    <select id="Valence" onchange="getIndexFromAtom()" size="7">
+        <option selected>(電中性)</option>
+        <option>+1價</option>
+        <option>+2價</option>
+        <option>+3價</option>
+        <option>-3價</option>
+        <option>-2價</option>
+        <option>-1價</option>
+    </select>
+    <table>
+        <tr>
+            <td style="font-size:150% ;border-style:double;width: fit-content;">元素名稱</td>
+            <td id="idnametd" style="border-style:double;width: fit-content;"><input readonly style="font-size: 150%; border: 0ch;height: 100%;width:80px;" type="text" id="idname"></td>
+            <td style="font-size:150% ;border-style:double;width: fit-content;">電子總數</td>
+            <td id="Enumtd" style="border-style:double;width: fit-content;"><input readonly style="font-size: 150%;border: 0ch;height: 100%;" onchange="getAtomFromE()" type="number" id="Enum" max="118" min="0"></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td style="font-size:150% ;border-style:double;width: fit-content;">副殼層排列</td>
+            <td id="outputtd" style="border-style:double;width: fit-content;"><div id="output"></div></td>
+        </tr>
+    </table>
+    </div>
+</body>
